@@ -2,9 +2,9 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-<title>SECURE ACCESS</title>
+<title>Cyber Portfolio</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
 
@@ -14,251 +14,267 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:'Share Tech Mono', monospace;
+font-family:'Share Tech Mono',monospace;
 }
 
 body{
+
 background:#000;
 overflow:hidden;
-color:#00ff00;
+color:#00ff66;
+
 }
 
+/*================ VIDEO =================*/
+
 video{
+
 position:fixed;
 top:0;
 left:0;
 width:100%;
 height:100%;
 object-fit:cover;
-z-index:-2;
+z-index:-5;
+
 }
 
+/*================ OVERLAY =================*/
+
 .overlay{
+
 position:fixed;
-top:0;
-left:0;
 width:100%;
 height:100%;
 background:rgba(0,0,0,.72);
-z-index:-1;
-}
-
-.container{
-
-display:flex;
-justify-content:center;
-align-items:center;
-flex-direction:column;
-height:100vh;
-text-align:center;
 
 }
 
-.title{
+/*================ CRT =================*/
 
-font-size:70px;
-text-shadow:
-0 0 10px #00ff00,
-0 0 25px #00ff00,
-0 0 45px #00ff00;
-
-animation:flicker 2s infinite;
-
-}
-
-.subtitle{
-
-margin-top:15px;
-font-size:18px;
-letter-spacing:4px;
-opacity:.8;
-
-}
-
-.enter{
-
-margin-top:45px;
-
-padding:18px 70px;
-
-font-size:20px;
-
-background:transparent;
-
-color:#00ff00;
-
-border:2px solid #00ff00;
-
-cursor:pointer;
-
-transition:.4s;
-
-}
-
-.enter:hover{
-
-background:#00ff00;
-
-color:#000;
-
-box-shadow:0 0 20px #00ff00;
-
-}
-
-#popup{
-
-display:none;
+.crt{
 
 position:fixed;
+width:100%;
+height:100%;
+pointer-events:none;
 
-top:0;
-left:0;
+background:
+linear-gradient(
+rgba(255,255,255,.03) 50%,
+transparent 50%
+);
+
+background-size:100% 4px;
+
+animation:flicker .15s infinite;
+
+mix-blend-mode:overlay;
+
+}
+
+/*================ GLITCH =================*/
+
+.glitch{
+
+position:fixed;
 
 width:100%;
 height:100%;
 
-background:rgba(0,0,0,.85);
+background:rgba(0,255,0,.02);
 
-justify-content:center;
-align-items:center;
+animation:glitch 5s infinite;
 
-}
-
-.login{
-
-width:420px;
-
-background:#040404;
-
-border:2px solid #00ff00;
-
-padding:40px;
-
-box-shadow:0 0 35px #00ff00;
+pointer-events:none;
 
 }
 
-.login h2{
-
-margin-bottom:20px;
-
-}
-
-.login input{
-
-width:100%;
-
-padding:15px;
-
-background:#000;
-
-border:1px solid #00ff00;
-
-color:#00ff00;
-
-font-size:18px;
-
-outline:none;
-
-margin-bottom:20px;
-
-}
-
-.login button{
-
-width:100%;
-
-padding:15px;
-
-font-size:18px;
-
-background:#00ff00;
-
-border:none;
-
-cursor:pointer;
-
-font-weight:bold;
-
-}
-
-.login button:hover{
-
-background:#44ff44;
-
-}
-
-#error{
-
-margin-top:15px;
-
-color:red;
-
-font-size:15px;
-
-}
-
-.scan{
-
-position:absolute;
-
-top:0;
-
-left:-100%;
-
-width:100%;
-
-height:3px;
-
-background:#00ff00;
-
-box-shadow:0 0 20px #00ff00;
-
-animation:scan 4s linear infinite;
-
-}
-
-@keyframes scan{
+@keyframes glitch{
 
 0%{
-top:0;
+
+transform:translate(0);
+
+}
+
+5%{
+
+transform:translate(-3px,2px);
+
+}
+
+6%{
+
+transform:translate(3px,-2px);
+
+}
+
+7%{
+
+transform:translate(0);
+
 }
 
 100%{
-top:100%;
+
+transform:translate(0);
+
 }
 
 }
 
 @keyframes flicker{
 
-0%,100%{
-opacity:1;
-}
+0%{opacity:.92;}
 
-50%{
-opacity:.6;
-}
+50%{opacity:1;}
 
-25%{
-opacity:.8;
-}
-
-75%{
-opacity:.4;
-}
+100%{opacity:.95;}
 
 }
 
-.matrix{
+/*================ BOOT =================*/
+
+#boot{
 
 position:absolute;
-bottom:20px;
+
 width:100%;
+height:100%;
+
+background:#000;
+
+padding:40px;
+
+overflow:hidden;
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:center;
+
+}
+
+#terminal{
+
+font-size:20px;
+
+line-height:34px;
+
+white-space:pre-line;
+
+}
+
+.progress{
+
+margin-top:40px;
+
+width:100%;
+
+height:20px;
+
+border:1px solid #00ff66;
+
+}
+
+.bar{
+
+width:0%;
+
+height:100%;
+
+background:#00ff66;
+
+box-shadow:0 0 20px #00ff66;
+
+}
+
+/*================ MAIN =================*/
+
+#main{
+
+display:none;
+
+height:100vh;
+
+justify-content:center;
+
+align-items:center;
+
+flex-direction:column;
+
 text-align:center;
-font-size:13px;
-letter-spacing:2px;
-opacity:.6;
+
+}
+
+.title{
+
+font-size:80px;
+
+text-shadow:
+0 0 10px #00ff66,
+0 0 30px #00ff66,
+0 0 70px #00ff66;
+
+margin-bottom:20px;
+
+}
+
+.subtitle{
+
+font-size:22px;
+
+opacity:.8;
+
+height:30px;
+
+}
+
+.cursor{
+
+animation:blink .8s infinite;
+
+}
+
+@keyframes blink{
+
+50%{
+
+opacity:0;
+
+}
+
+}
+
+/*================ MATRIX =================*/
+
+canvas{
+
+position:fixed;
+
+top:0;
+
+left:0;
+
+width:100%;
+
+height:100%;
+
+z-index:-4;
+
+}
+
+.info{
+
+position:absolute;
+
+bottom:20px;
+
+font-size:15px;
+
+letter-spacing:3px;
 
 }
 
@@ -269,59 +285,50 @@ opacity:.6;
 <body>
 
 <video autoplay muted loop>
+
 <source src="yut.mp4" type="video/mp4">
+
 </video>
+
+<canvas id="matrix"></canvas>
 
 <div class="overlay"></div>
 
-<div class="scan"></div>
+<div class="glitch"></div>
 
-<div class="container">
+<div class="crt"></div>
+
+<div id="boot">
+
+<div id="terminal"></div>
+
+<div class="progress">
+
+<div class="bar"></div>
+
+</div>
+
+</div>
+
+<div id="main">
 
 <h1 class="title">
-SYBER SECURITY
+
+CYBER SECURITY
+
 </h1>
 
-<p class="subtitle">
+<div class="subtitle">
 
-Welcome To Data Base we
+<span id="typing"></span>
 
-</p>
-
-<button class="enter" id="btn">
-
-LOGIN
-
-</button>
-
-<div class="matrix">
-
-ACCESS LEVEL : ROOT HIGH |
-DESCRIPTION : DANGER STRONG |
-STATUS : ONLINE
+<span class="cursor">|</span>
 
 </div>
 
-</div>
+<div class="info">
 
-<div id="popup">
-
-<div class="login">
-
-<h2>LOGIN REQUIRED</h2>
-
-<input
-type="password"
-id="pass"
-placeholder="Enter Password">
-
-<button onclick="login()">
-
-ACCESS
-
-</button>
-
-<div id="error"></div>
+PORTFOLIO • FULL STACK • CYBER ENTHUSIAST
 
 </div>
 
@@ -329,50 +336,143 @@ ACCESS
 
 <script>
 
-const popup=document.getElementById("popup");
+/*============== MATRIX ==============*/
 
-document.getElementById("btn").onclick=()=>{
+const canvas=document.getElementById("matrix");
 
-popup.style.display="flex";
+const ctx=canvas.getContext("2d");
+
+canvas.width=window.innerWidth;
+
+canvas.height=window.innerHeight;
+
+const letters="01ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+const fontSize=16;
+
+const columns=canvas.width/fontSize;
+
+const drops=[];
+
+for(let i=0;i<columns;i++){
+
+drops[i]=1;
 
 }
 
-function login(){
+function draw(){
 
-let password="1187";
+ctx.fillStyle="rgba(0,0,0,.05)";
 
-let drive="https://drive.google.com/drive/folders/11y0PLWGQUUYwAPo8dL5kAfwrlDLfgq4g?usp=sharing";
+ctx.fillRect(0,0,canvas.width,canvas.height);
 
-if(document.getElementById("pass").value===password){
+ctx.fillStyle="#00ff66";
 
-document.body.innerHTML=`
-<div style="
-background:black;
-color:#00ff00;
-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-font-size:30px;
-font-family:monospace;
-flex-direction:column;
-">
-Decrypting Data...
-<br><br>
-██████████████░░░░░░ 70%
-</div>`;
+ctx.font=fontSize+"px monospace";
 
-setTimeout(()=>{
+for(let i=0;i<drops.length;i++){
 
-window.location.href=drive;
+const text=letters[Math.floor(Math.random()*letters.length)];
 
-},2500);
+ctx.fillText(text,i*fontSize,drops[i]*fontSize);
+
+if(drops[i]*fontSize>canvas.height&&Math.random()>0.975)
+
+drops[i]=0;
+
+drops[i]++;
+
+}
+
+}
+
+setInterval(draw,35);
+
+/*============== BOOT ==============*/
+
+const terminal=document.getElementById("terminal");
+
+const bar=document.querySelector(".bar");
+
+const lines=[
+
+"Booting Kali Linux...",
+
+"Checking hardware...",
+
+"Loading Kernel Modules...",
+
+"Initializing Network...",
+
+"Starting Secure Services...",
+
+"Mounting File System...",
+
+"Launching Desktop...",
+
+"Loading Cyber Portfolio..."
+
+];
+
+let index=0;
+
+let progress=0;
+
+function boot(){
+
+if(index<lines.length){
+
+terminal.innerHTML+=lines[index]+"<br>";
+
+index++;
+
+}
+
+progress+=12;
+
+bar.style.width=progress+"%";
+
+if(progress<100){
+
+setTimeout(boot,500);
 
 }else{
 
-document.getElementById("error").innerHTML="ACCESS DENIED";
+setTimeout(startPortfolio,800);
 
 }
+
+}
+
+boot();
+
+/*============== TYPE WRITER ==============*/
+
+function startPortfolio(){
+
+document.getElementById("boot").style.display="none";
+
+document.getElementById("main").style.display="flex";
+
+const text="WELCOME TO MY CYBER PORTFOLIO";
+
+let i=0;
+
+function type(){
+
+if(i<text.length){
+
+document.getElementById("typing").innerHTML+=text.charAt(i);
+
+i++;
+
+setTimeout(type,70);
+
+}
+
+}
+
+type();
 
 }
 
