@@ -263,7 +263,14 @@ opacity:.6;
 }
 
 </style>
+.cursor{
+    animation:blink .8s infinite;
+}
 
+@keyframes blink{
+    0%,50%{opacity:1;}
+    51%,100%{opacity:0;}
+}
 </head>
 
 <body>
@@ -432,21 +439,7 @@ let drive="https://drive.google.com/drive/folders/11y0PLWGQUUYwAPo8dL5kAfwrlDLfg
 if(document.getElementById("pass").value===password){
 
 document.body.innerHTML=`
-.cursor{
-animation:blink .8s infinite;
-}
 
-@keyframes blink{
-
-0%,50%{
-opacity:1;
-}
-
-51%,100%{
-opacity:0;
-}
-
-}
 <div style="
 background:black;
 color:#00ff00;
@@ -485,7 +478,6 @@ document.getElementById("error").innerHTML="ACCESS DENIED";
 <audio id="clickSound" preload="auto">
     <source src="click.mp3" type="audio/mpeg">
 </audio>
-  typing.mp3
-click.mp3
+ 
 </body>
 </html>
