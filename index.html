@@ -1,18 +1,382 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
-    <title>Profil Saya - Udin</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="kartu-profil">
-        <img src="IMG_20251016_100249.jpg" alt="foto profil saya">
-        <h1>MOHAMMAD FAKHRUDDIN</h1>
-        <p>Siswa SMA yang tertarik dengan teknologi dan desain. Selamat datang!</p>
-        <a href="https://youtube.com/@brudngaming?si=8pbYoFdkNjwkP4xQ/">Kunjungi YouTube Kami</a>
-        <br><br> <button id="sapaButton">Sapa Saya!</button>
-    </div>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <script src="script.js"></script>
+<title>SECURE ACCESS</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Share Tech Mono', monospace;
+}
+
+body{
+background:#000;
+overflow:hidden;
+color:#00ff00;
+}
+
+video{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+object-fit:cover;
+z-index:-2;
+}
+
+.overlay{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.72);
+z-index:-1;
+}
+
+.container{
+
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+height:100vh;
+text-align:center;
+
+}
+
+.title{
+
+font-size:70px;
+text-shadow:
+0 0 10px #00ff00,
+0 0 25px #00ff00,
+0 0 45px #00ff00;
+
+animation:flicker 2s infinite;
+
+}
+
+.subtitle{
+
+margin-top:15px;
+font-size:18px;
+letter-spacing:4px;
+opacity:.8;
+
+}
+
+.enter{
+
+margin-top:45px;
+
+padding:18px 70px;
+
+font-size:20px;
+
+background:transparent;
+
+color:#00ff00;
+
+border:2px solid #00ff00;
+
+cursor:pointer;
+
+transition:.4s;
+
+}
+
+.enter:hover{
+
+background:#00ff00;
+
+color:#000;
+
+box-shadow:0 0 20px #00ff00;
+
+}
+
+#popup{
+
+display:none;
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+background:rgba(0,0,0,.85);
+
+justify-content:center;
+align-items:center;
+
+}
+
+.login{
+
+width:420px;
+
+background:#040404;
+
+border:2px solid #00ff00;
+
+padding:40px;
+
+box-shadow:0 0 35px #00ff00;
+
+}
+
+.login h2{
+
+margin-bottom:20px;
+
+}
+
+.login input{
+
+width:100%;
+
+padding:15px;
+
+background:#000;
+
+border:1px solid #00ff00;
+
+color:#00ff00;
+
+font-size:18px;
+
+outline:none;
+
+margin-bottom:20px;
+
+}
+
+.login button{
+
+width:100%;
+
+padding:15px;
+
+font-size:18px;
+
+background:#00ff00;
+
+border:none;
+
+cursor:pointer;
+
+font-weight:bold;
+
+}
+
+.login button:hover{
+
+background:#44ff44;
+
+}
+
+#error{
+
+margin-top:15px;
+
+color:red;
+
+font-size:15px;
+
+}
+
+.scan{
+
+position:absolute;
+
+top:0;
+
+left:-100%;
+
+width:100%;
+
+height:3px;
+
+background:#00ff00;
+
+box-shadow:0 0 20px #00ff00;
+
+animation:scan 4s linear infinite;
+
+}
+
+@keyframes scan{
+
+0%{
+top:0;
+}
+
+100%{
+top:100%;
+}
+
+}
+
+@keyframes flicker{
+
+0%,100%{
+opacity:1;
+}
+
+50%{
+opacity:.6;
+}
+
+25%{
+opacity:.8;
+}
+
+75%{
+opacity:.4;
+}
+
+}
+
+.matrix{
+
+position:absolute;
+bottom:20px;
+width:100%;
+text-align:center;
+font-size:13px;
+letter-spacing:2px;
+opacity:.6;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<video autoplay muted loop>
+<source src="hacker.mp4" type="video/mp4">
+</video>
+
+<div class="overlay"></div>
+
+<div class="scan"></div>
+
+<div class="container">
+
+<h1 class="title">
+SECURE ACCESS
+</h1>
+
+<p class="subtitle">
+
+AUTHORIZED PERSONNEL ONLY
+
+</p>
+
+<button class="enter" id="btn">
+
+ENTER SYSTEM
+
+</button>
+
+<div class="matrix">
+
+ACCESS LEVEL : ROOT |
+ENCRYPTION : AES-256 |
+STATUS : ONLINE
+
+</div>
+
+</div>
+
+<div id="popup">
+
+<div class="login">
+
+<h2>LOGIN REQUIRED</h2>
+
+<input
+type="password"
+id="pass"
+placeholder="Enter Password">
+
+<button onclick="login()">
+
+ACCESS
+
+</button>
+
+<div id="error"></div>
+
+</div>
+
+</div>
+
+<script>
+
+const popup=document.getElementById("popup");
+
+document.getElementById("btn").onclick=()=>{
+
+popup.style.display="flex";
+
+}
+
+function login(){
+
+let password="PASSWORDANDA";
+
+let drive="LINK_GOOGLE_DRIVE_ANDA";
+
+if(document.getElementById("pass").value===password){
+
+document.body.innerHTML=`
+<div style="
+background:black;
+color:#00ff00;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:30px;
+font-family:monospace;
+flex-direction:column;
+">
+Decrypting Data...
+<br><br>
+██████████████░░░░░░ 70%
+</div>`;
+
+setTimeout(()=>{
+
+window.location.href=drive;
+
+},2500);
+
+}else{
+
+document.getElementById("error").innerHTML="ACCESS DENIED";
+
+}
+
+}
+
+</script>
+
 </body>
 </html>
